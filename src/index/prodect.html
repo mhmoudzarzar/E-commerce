@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prodect</title>
+    <link rel="stylesheet" href="/src/styles/prodect.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="/Ecommerce Website/img/product/1.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="top-header">
+        <div class="logo">
+          <a href="/index/index.html"><h2>R&M</h2></a>
+        </div>
+
+        <div class="search-box">
+          <input type="search" placeholder="Search" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="icon">
+          <i class="fa-solid fa-globe" id="map-icon" title="Show Location"></i>
+
+          <i class="fa-solid fa-headset" title="Support"></i>
+         
+
+          <div class="cart-container">
+            <i id="cart-icon" class="fa-solid fa-bag-shopping" title="Cart"></i>
+            <div class="cart-shop hidden">
+              <div class="title-shop">
+                <h2>Cart Shop</h2>
+              </div>
+              <div class="item-list">
+                <ul id="item-list-container"></ul>
+              </div>
+              <div class="total">
+                <h2 id="total">Total:</h2>
+              </div>
+            </div>
+          </div>
+
+          <a href="/index/login.html">
+            <i class="fa-solid fa-user" title="User  Account"></i>
+          </a>
+          <div>
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <div class="doropmenu hidden" id="dropmenu">
+              <ul>
+                <li><a href="#">catagory</a></li>
+                <li><a href="#">sign in</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Order History</a></li>
+                <li><a href="#">Wishlist</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="prodect">
+      <div>
+        <img src="" alt="product" loading="lazy" id="product-img" />
+      </div>
+
+      <div>
+        <h2 id="product-title"></h2>
+
+       <div class="description">
+         <p id="description"></p>
+       </div>
+
+        <div class="price">
+          <h5 id="product-price"></h5>
+          <button id="addBtn">Add To Cart</button>
+        </div>
+      </div>
+    </main>
+
+    <section class="all-product">
+      <h2 class="heading">Products</h2>
+      <div class="product" id="product"></div>
+    </section>
+   <footer>
+      <div class="footer-container">
+        <ul>
+          <h2>About Us</h2>
+          <li>Team</li>
+          <li>Careers</li>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+        <ul>
+          <h2>Contact</h2>
+          <li>Products</li>
+          <li>Pricing</li>
+          <li>Features</li>
+          <li>FAQ</li>
+          <li>Support</li>
+        </ul>
+        <ul>
+          <h2>Follow Us</h2>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Instagram</li>
+          <li>YouTube</li>
+        </ul>
+      </div>
+    </footer>
+    <script type="module" src="/src/script/prodect.js"></script>
+  </body>
+</html>
