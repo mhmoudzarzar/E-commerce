@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/Ecommerce Website/img/product/1.png"
+      type="image/x-icon"
+    />
+ <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+
+    <link rel="stylesheet" href="/src/styles/form.css" />
+    <title>Log In</title>
+  </head>
+  <body>
+      <header>
+      <div class="top-header">
+        <div class="logo">
+          <a href="/index/index.html"><h2>R&M</h2></a>
+        </div>
+      </div>
+        <div>
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <div class="doropmenu hidden" id="dropmenu">
+              <ul>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-list"></i>
+                    catagory
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    sign in
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-user" title="User  Account"></i>
+                    My Account
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Order History
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-regular fa-heart"></i>
+                    Wishlist
+                  </a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-headset" title="Support"></i>
+                  support
+                </li>
+              </ul>
+            </div>
+          </div>
+  </header>
+    <section class="form-login">
+      <form action="" method="post" id="form">
+        <div>
+          <label for="eamil">Enter Your Email</label>
+          <input type="email" placeholder="Email" id="email" />
+        </div>
+        <div>
+          <label for="Password">Enter Your Password</label>
+          <input type="password" placeholder="Password" id="password" />
+        </div>
+        <button type="submit">submit</button>
+      
+      </form>
+        <div class="form-links">
+          <a  href="/index/forgot-password.html" id="forgot-password">Forgot Password?</a>
+        <a  href="/index/register.html" id="register">Create an Account</a>
+        </div>
+      
+    </section>
+      <div class="terms">
+          <p>By continuing, you agree to our <a href="/index/terms.html">Terms of Service</a> and <a href="/index/privacy.html">Privacy Policy</a>.</p>
+        </div>
+        <p id="message"></p>
+    <script src="/src/script/form.js" type="module"></script>
+  </body>
+</html>

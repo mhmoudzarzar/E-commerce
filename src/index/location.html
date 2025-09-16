@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R&M City Shop | تسوق أونلاين</title>
+    <meta
+      name="description"
+      content="R&M City Shop - تسوق ملابس، أحذية، مستحضرات تجميل، وأكثر مع خصومات مميزة."
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="/Ecommerce Website/img/product/1.png"
+      type="image/x-icon"
+    />
+  <!-- استدعاء CSS الخاص بـ Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <style>
+    .map {
+      width: 90vw;
+      height: 50vh;
+      border: 2px solid var(--primary-color);    
+      border-radius: 10px;
+    
+    }
+
+    .location {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 70px); 
+    }
+
+    :root {
+      --light-primary-color: #f1f3f9;
+      --primary-color: #1e40af;
+      --primary-text: #1f2937;
+      --secondary-text: #4b5563;
+      --accent-color: #2563eb;
+      --text-icon: #ffffff;
+      --footer-bg: #111827;
+      --error-color: #dc2626;
+      --success-color: #16a34a;
+      --hover-color: #1d4ed8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-transform: capitalize;
+    }
+
+    body {
+      background: var(--light-primary-color);
+      color: var(--primary-text);
+      font-family: 'Oswald', sans-serif;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-icon);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--accent-color);
+    }
+
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    a {
+      color: var(--text-icon);
+      text-decoration: none;
+    }
+
+    .doropmenu {
+      position: fixed;
+      right: 0;
+      top: 15vh;
+      background-color: var(--primary-color);
+      padding: 1rem;
+      height: 40vh;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    i {
+      cursor: pointer;
+    }
+
+    .doropmenu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .doropmenu ul li {
+      cursor: pointer;
+      border-bottom: 1px solid var(--accent-color);
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: 0.1s;
+    }
+
+    .doropmenu ul li:hover {
+      background: var(--hover-color);
+      transform: scale(1.1);
+    }
+    .store-info {
+    text-align: center;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .store-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .store-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1e40af;
+    font-weight: 700;
+  }
+
+  .store-info p {
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+
+  .store-info strong {
+    color: #2563eb;
+  }
+
+  @media (max-width: 600px) {
+    .store-info {
+      padding: 1.5rem 1rem;
+    }
+    .store-info h2 {
+      font-size: 1.5rem;
+    }
+    .store-info p {
+      font-size: 1rem;
+    }
+  }
+  footer {
+    background: var(--footer-bg);
+    color: var(--text-icon);
+    padding: 1rem 5rem;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-container ul {
+    list-style: none;
+    padding: 0;
+    min-width: 150px;
+}
+
+.footer-container li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-container li:hover {
+    color: var(--accent-color);
+}
+
+.hidden {
+    display: none;
+}
+  </style>
+</head>
+<body>
+  <header>
+      <div class="top-header">
+        <div class="logo">
+          <a href="/index/index.html"><h2>R&M</h2></a>
+        </div>
+      </div>
+      <div>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <div class="doropmenu hidden" id="dropmenu">
+          <ul>
+            <li><a href="#">catagory</a></li>
+            <li><a href="#">sign in</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Order History</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+      </div>
+  </header>
+<section class="store-info" style="text-align: center; max-width: 800px; margin: 2rem auto; padding: 1rem;">
+  <h2>عن متجر R&M</h2>
+  <p>
+    مرحباً بكم في <strong>R&M</strong>، وجهتكم الموثوقة لشراء أفضل المنتجات المتنوعة بجودة عالية وأسعار مناسبة. 
+    نوفر لكم مجموعة واسعة من الإلكترونيات، الأكسسوارات، الأدوات المنزلية، ومستحضرات العناية الشخصية.<br><br>
+    هدفنا هو تقديم تجربة تسوق مميزة لكل زائر مع خدمة عملاء ممتازة وعروض حصرية أسبوعية. 
+    زورونا واستمتعوا بتجربة تسوق فريدة تجمع بين الجودة والراحة.
+  </p>
+</section>
+
+  <section class="location">
+    <div id="map" class="map"></div>
+  </section>
+ <footer>
+      <div class="footer-container">
+        <ul>
+          <h2>About Us</h2>
+          <li>Team</li>
+          <li>Careers</li>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+        <ul>
+          <h2>Contact</h2>
+          <li>Products</li>
+          <li>Pricing</li>
+          <li>Features</li>
+          <li>FAQ</li>
+          <li>Support</li>
+        </ul>
+        <ul>
+          <h2>Follow Us</h2>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Instagram</li>
+          <li>YouTube</li>
+        </ul>
+      </div>
+    </footer>
+  <!-- استدعاء مكتبة Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+ <script type="module">
+
+
+
+
+    // إنشاء الخريطة وتحديد الإحداثيات (عمان، الأردن)
+    let map = L.map('map').setView([31.963158, 35.930359], 13);
+
+    // إضافة الخريطة من OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+
+    // إضافة ماركر (Pin) لمكان المتجر
+   L.marker([31.963158, 35.930359])
+  .addTo(map)
+  .bindPopup(`
+    <b>📍 متجر R&M</b><br>
+    مرحباً بكم في R&M، وجهتكم الموثوقة لشراء أفضل المنتجات المتنوعة بأسعار تنافسية وجودة عالية. 
+    نقدم لكم مجموعة واسعة من الإلكترونيات، الأكسسوارات، الأدوات المنزلية، ومستحضرات العناية الشخصية.<br><br>
+    فريقنا يسعى دائماً لتقديم خدمة عملاء ممتازة وتجربة تسوق ممتعة لكل زائر.<br>
+    زورونا الآن واستفيدوا من العروض الحصرية والخصومات الأسبوعية!
+  `)
+  .openPopup();
+let dropmenu=document.getElementById("dropmenu")
+let menuIcon=document.getElementById("menu-icon")
+menuIcon.addEventListener("click",()=>{
+dropmenu.classList.toggle("hidden")
+})
+  </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+:root {
+    --light-primary-color: #f1f3f9;
+    /* خلفية عامة فاتحة */
+    --primary-color: #1e40af;
+    /* أزرق داكن للأزرار والـ navbar */
+    --primary-text: #1f2937;
+    /* نص أساسي داكن */
+    --secondary-text: #4b5563;
+    /* نص ثانوي */
+    --accent-color: #2563eb;
+    /* أزرق فاتح للتفاصيل */
+    --text-icon: #ffffff;
+    /* أيقونات ونصوص فوق الأزرار الداكنة */
+    --footer-bg: #111827;
+    /* خلفية الفوتر داكنة جداً */
+    --error-color: #dc2626;
+    /* لون أحمر للأخطاء أو التنبيهات */
+    --success-color: #16a34a;
+    /* لون أخضر للنجاح */
+    --hover-color: #1d4ed8;
+    /* لون أزرق أغمق عند التمرير */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+
+body {
+    background: var(--light-primary-color);
+    color: var(--primary-text);
+    font-family: 'Oswald', sans-serif;
+}
+
+header {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-icon);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+a {
+    color: var(--text-icon);
+    text-decoration: none;
+}
+.heading {
+    font-size: 40px;
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--text-icon);
+    padding: 1rem;
+}
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid var(--accent-color);
+    padding: 1rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav {
+    width: 100%;
+    padding: 1rem;
+}
+
+.search-box {
+    width: 40%;
+    background-color: var(--text-icon);
+    color: var(--secondary-text);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.search-box i {
+    margin-right: 0.5rem;
+    color: var(--secondary-text);
+}
+
+.search-box input {
+    width: 90%;
+    height: 100%;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+    color: var(--primary-text);
+    background: none;
+    font-size: 1rem;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+}
+
+nav a {
+    color: var(--text-icon);
+    text-decoration: none;
+    font-size: large;
+    transition: color 0.3s;
+}
+
+nav li {
+    position: relative;
+    padding: 0 0.5rem;
+}
+
+nav li:after {
+    content: "";
+    height: 0.1rem;
+    width: 0;
+    background-color: var(--text-icon);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+
+nav li:hover:after {
+    width: 100%;
+}
+
+nav li:hover a {
+    color: var(--hover-color);
+}.doropmenu {
+    position: fixed;
+    right: 0;
+    top: 15vh;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    height: 40vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.doropmenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.doropmenu ul li {
+    cursor: pointer;
+    border-bottom: 1px solid var(--accent-color);
+
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: 0.1s;
+}
+
+.doropmenu ul li:hover {
+    background: var(--hover-color);
+    transform: scale(1.1);
+}
+/* ======================================
+   السلة
+====================================== */
+.cart-contener {
+    position: relative;
+}
+
+.cart-shop {
+    width: 50vw;
+    position: fixed;
+    right: 0;
+    top: 22vh;
+    background-color: var(--primary-color);
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    z-index: 999;
+    transition: transform 0.5s ease;
+
+    border-radius: 0 0 0 1rem;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.title-shop,
+.total {
+    width: 100%;
+    text-align: center;
+
+    border-bottom: 1px solid var(--accent-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.total {
+    border: none;
+    border-top: 1px solid var(--accent-color);
+}
+
+.item-list {
+    height: 70%;
+    overflow-y: auto;
+
+}
+
+.item-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.item-list li {
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+     height: 10vh;
+     padding: 0.5rem;
+     border-bottom: 1px solid var(--accent-color);
+     border-radius: 1rem;
+}
+
+
+
+.item-list img {
+    width: 25%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+
+}
+
+.item-cart button {
+    height: 30px;
+    width: 30px;
+    background: var(--text-icon);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item-cart button:hover {
+    background-color: var(--accent-color);
+    color: var(--text-icon);
+}
+
+/* ======================================
+   عناصر المنتجات
+====================================== */
+.prodect {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 70vh;
+   border: 1px solid var(--accent-color);
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
+.prodect div {
+    width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+   
+ 
+}
+
+.prodect img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* اسم المنتج */
+.cardTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* السعر */
+.prodect h5 {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+    margin-bottom: 15px;
+}
+
+/* زر الإضافة للسلة */
+.prodect button {
+  background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+
+.products {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.product {
+    padding: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 1rem;
+}
+.all-proudct {
+    text-align: center;
+    padding: 1rem;
+}
+.product {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: auto;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+}.item {
+    background: var(--text-icon);
+    transition: transform 0.5s, border-color 0.5s;
+    padding-bottom: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.item img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    border-color: var(--hover-color);
+}
+
+.item button {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var(--text-icon);
+    font-weight: 800;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item button:hover {
+    background-color: var(--hover-color);
+}
+
+.massegecontener {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 30%;
+    background: white;
+    color: var(--primary-color);
+    z-index: 999;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+
+}
+
+.massegecontener h2 {
+    padding: 1rem;
+}.border {
+    width: 100%;
+    height: 5px;
+    background: green;
+    transition: width 3s linear;
+
+}
+
+.border.shrink {
+    width: 0;
+}
+footer {
+    background: var(--footer-bg);
+    color: var(--text-icon);
+    padding: 1rem 5rem;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-container ul {
+    list-style: none;
+    padding: 0;
+    min-width: 150px;
+}
+
+.footer-container li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-container li:hover {
+    color: var(--accent-color);
+}
+
+i {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+i:hover {
+    color: var(--accent-color);
+}
+
+.hidden {
+    display: none;
+}
