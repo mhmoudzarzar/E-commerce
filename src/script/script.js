@@ -11,7 +11,7 @@ cart.getTotal();
 /////////////////////////////////////////////
 export class Fetching {
   constructor() {
-    this.url = '/src/API/api.json';
+    this.url = '/E-commerce/src/API/api.json';
   }
 
   async cashing() {
@@ -50,7 +50,7 @@ export class Fetching {
       card.className = 'item';
       card.id = element.id;
       card.addEventListener('click', () => {
-        window.location.href = `/src/index/prodect.html?id=${card.id}`;
+        window.location.href = `/E-commerce/src/index/prodect.html?id=${card.id}`;
       });
 
       card.appendChild(cardImg);
@@ -86,5 +86,5 @@ let mapIcon = document.getElementById('map-icon');
 
 
 mapIcon.addEventListener('click', () => {
-  window.location.href = `/src/index/location.html`;
+  window.location.href = `/E-commerce/src/index/location.html`;
 });
