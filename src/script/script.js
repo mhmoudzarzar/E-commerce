@@ -3,10 +3,10 @@
 let fragment = document.createDocumentFragment();
 let product = document.getElementById("product");
 
-import { Cart } from "./src/script/cart.js";
-let cart = new Cart();
-cart.renderToCart();
-cart.getTotal();
+// import { Cart } from "./src/script/cart.js";
+// let cart = new Cart();
+// cart.renderToCart();
+// cart.getTotal();
 
 /////////////////////////////////////////////
 export class Fetching {
